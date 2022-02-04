@@ -1,14 +1,15 @@
 import processing.core.PApplet;
 public class FourBalls  extends  PApplet{
-
-    public static final int WIDTH = 800;
+    Ball ball1;
+    Ball ball2;
+    Ball ball3;
+    Ball ball4;
+    public static final int WIDTH = 1080;
     public static final int HEIGHT = 800;
-    public static final int DIAMETER = 100;
 
     public static void main(String[] args) {
         PApplet.main("FourBalls",args);
     }
-    int x1=0,x2=0,x3=0,x4=0;
     @Override
     public void settings() {
         super.settings();
@@ -17,30 +18,22 @@ public class FourBalls  extends  PApplet{
 
     @Override
     public void setup() {
+        ball1= new Ball(0,HEIGHT/5 ,20,1,this);
+        ball2= new Ball(0,(HEIGHT*2)/5 ,20,2,this);
+        ball3= new Ball(0,(HEIGHT*3)/5 ,20,3,this);
+        ball4= new Ball(0,(HEIGHT*4)/5,20,4,this);
     }
 
     @Override
     public void draw() {
-        drawBall1();
-        drawBall2();
-        drawBall3();
-        drawBall4();
+        ball1.draw();
+        ball1.increaseSpeed();
+        ball2.draw();
+        ball2.increaseSpeed();
+        ball3.draw();
+        ball3.increaseSpeed();
+        ball4.draw();
+        ball4.increaseSpeed();
     }
 
-    private void drawBall1() {
-        ellipse(x1,HEIGHT/5  , DIAMETER,DIAMETER);
-        x1++;
-    }
-    private void drawBall2() {
-        ellipse(x2,(HEIGHT*2)/5  , DIAMETER,DIAMETER);
-        x2=x2+2;
-    }
-    private void drawBall3() {
-        ellipse(x3,(HEIGHT*3)/5  , DIAMETER,DIAMETER);
-        x3=x3+3;
-    }
-    private void drawBall4() {
-        ellipse(x4,(HEIGHT*4)/5  , DIAMETER,DIAMETER);
-        x4=x4+4;
-    }
 }
